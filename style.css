@@ -1,0 +1,281 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    padding-top: 145px;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #0073e6;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+:target {
+    scroll-margin-top: 80px; /* 讓標籤跳轉時不會被 header 蓋住 */
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+section {
+    padding: 20px;
+    background: white;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #0073e6;
+    color: white;
+    margin-top: 20px;
+}
+h2 {
+    color: #0073e6;
+}
+h3 {
+grid-column: span 2;
+font-size: 1.5rem;
+color: #0073e6;
+margin-top: 20px;
+}
+.skill-tree-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+}
+.skill-tree {
+    width: 100%;
+}
+.toolbar {
+    position: absolute;
+top: -5px;
+left: 180px;
+width: 100px;
+height: 0px;
+    
+}
+
+hr {
+    margin: 20px 0;
+}
+.experience-list {
+    list-style: none;
+    padding: 0;
+}
+
+.experience-list li {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;  /* 設置每個列表項目的格局 */
+    gap: 10px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+
+.experience-list span {
+display: block;
+padding: 5px;
+}
+
+.date {
+font-weight: bold;
+color: #0073e6;
+}
+
+.program, .organization, .competition-name {
+color: #333;
+font-size: 1.1rem;  /* 稍微增大字體 */
+font-weight: bold;  /* 增強字體粗細 */
+background-color: #f7f7f7;  /* 增加背景顏色，讓它突出 */
+padding: 8px;
+border-radius: 5px;  /* 加圓角邊框 */
+margin-top: 5px;  /* 上方加點間隔 */
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);  /* 微弱陰影效果 */
+text-transform: capitalize;  /* 首字母大寫 */
+}
+
+.program:hover, .organization:hover, .competition-name:hover {
+background-color: #e0e0e0;  /* 滑鼠懸停時變色 */
+cursor: pointer;  /* 滑鼠變為點擊指標 */
+}
+
+
+#article {
+text-align: center;
+padding: 20px;
+}
+
+.article-container {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+gap: 30px;
+justify-content: center;
+align-items: center;
+max-width: 800px;
+margin: auto;
+}
+
+.article-item {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-decoration: none;
+background: #e6ffe6; /* 淺綠背景 */
+padding: 15px;
+border-radius: 10px;
+box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.article-item:hover {
+transform: scale(1.1);
+box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.15);
+}
+
+.article-item img {
+margin-bottom: 10px;
+}
+
+.article-item span {
+font-weight: bold;
+color: #2c7a2c; /* 深綠色 */
+font-size: 1.1em;
+}
+
+
+.event {
+
+color: #2c3e50;  /* 深灰藍色，增加專業感 */
+font-size: 1rem;  /* 稍微減小字體大小，與競賽名稱區分 */
+font-weight: 500;  /* 中等粗細，保持清晰可讀 */
+background-color: #f0f0f0;  /* 淺灰背景顏色 */
+padding: 6px 10px;  /* 上下內距6px，左右10px，讓內容不會貼邊 */
+border-left: 4px solid #3498db;  /* 左邊添加藍色邊框，增加區分度 */
+border-radius: 5px;  /* 圓角邊框 */
+margin-top: 5px;
+}
+
+.action, .result {
+color: #e74c3c;  /* 結果部分的紅色，突出顯示 */
+font-size: 1rem;
+font-weight: 600;  /* 結果字體加粗 */
+background-color: #f8d7da;  /* 淺紅色背景 */
+padding: 6px 10px;
+border-radius: 5px;
+margin-top: 5px;
+text-align: center;  /* 讓結果文字居中顯示 */
+}
+
+.action {
+color: #27ae60;
+background-color: #c8e6c9;
+}
+
+.event:hover {
+background-color: #e8f4fa;  /* 懸停時背景變亮 */
+cursor: pointer;  /* 鼠標變為手形，表示可點擊 */
+}
+
+.action:hover, .result:hover {
+background-color: #f5c6cb;  /* 結果部分懸停時改變顏色 */
+cursor: pointer;
+}
+.action:hover {
+background-color: #a3d9a5;
+}
+#certificates {
+text-align: center;
+padding: 20px;
+}
+
+.certificate-list {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 10px;
+max-width: 800px;
+margin: auto;
+}
+
+.certificate {
+background: #e6ffe6; /* 淺綠色背景 */
+border-left: 5px solid #4caf50; /* 綠色標示條 */
+padding: 10px 15px;
+border-radius: 8px;
+box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+font-size: 1.1em;
+transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.certificate:hover {
+transform: scale(1.05);
+box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.15);
+}
+
+.certificate a {
+text-decoration: none;
+color: #2c7a2c; /* 深綠色文字 */
+font-weight: bold;
+}
+
+.certificate a:hover {
+color: #1b5e20; /* 更深的綠色 */
+}
+#contact {
+text-align: center;
+padding: 20px;
+}
+
+.contact-container {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.contact-btn {
+display: flex;
+align-items: center;
+gap: 10px;
+background-color: #2c7a2c; /* 深綠色 */
+color: white;
+text-decoration: none;
+font-size: 1.2em;
+font-weight: bold;
+padding: 10px 20px;
+border-radius: 8px;
+box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.contact-btn img {
+width: 24px;
+height: 24px;
+filter: invert(1); /* 讓圖示變成白色 */
+}
+
+.contact-btn:hover {
+transform: scale(1.1);
+box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.15);
+}

@@ -279,3 +279,82 @@ filter: invert(1); /* 讓圖示變成白色 */
 transform: scale(1.1);
 box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.15);
 }
+
+.impl-category h3 {
+    font-size: 1.4rem;
+    color: #0056b3;
+    margin-top: 30px;
+    border-left: 6px solid #0073e6; /* 加入左側飾條 */
+    padding-left: 15px;
+}
+
+.impl-category hr {
+    border: 0;
+    height: 1px;
+    background: #eee;
+    margin: 10px 0 20px 0;
+}
+
+/* RWD 響應式設定 */
+@media (max-width: 768px) {
+    body {
+        padding-top: 180px; /* 手機版導覽列較高，增加上方間距 */
+    }
+
+    header {
+        padding: 5px 0;
+    }
+
+    nav ul li {
+        display: inline-block;
+        margin: 5px 8px; /* 縮小導覽項目的間距 */
+        font-size: 0.9rem;
+    }
+
+    section {
+        margin: 10px; /* 縮小區塊外邊距 */
+        padding: 15px;
+    }
+
+    /* 讓經歷與實作列表在手機上改為垂直排列 */
+    .experience-list li {
+        grid-template-columns: 1fr; /* 改為單欄佈局 */
+        text-align: center;
+        gap: 5px;
+    }
+
+    .date {
+        border-bottom: 1px solid #eee;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+    }
+
+    .program, .organization, .competition-name {
+        font-size: 1rem;
+    }
+
+    /* 技能樹高度調整 */
+    #markmap {
+        height: 40vh !important;
+    }
+
+    /* 證照與文章列表調整 */
+    .certificate-list, .article-container {
+        grid-template-columns: 1fr; /* 強制單欄顯示 */
+    }
+
+    .toolbar {
+        left: 20px; /* 調整工具列位置防止溢出 */
+    }
+}
+
+/* 針對極小螢幕（如舊型手機） */
+@media (max-width: 480px) {
+    body {
+        padding-top: 220px;
+    }
+    
+    nav ul li {
+        margin: 3px 5px;
+    }
+}

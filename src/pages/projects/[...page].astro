@@ -1,0 +1,88 @@
+---
+// The portfolio page: a paginated grid of ProjectCard entries from
+// src/data/projects (SITE.pageSize.projects per page — 9 fills the 3-up
+// grid three rows deep). Empty data hides the grid and shows the empty
+// note, same policy as every data-driven surface.
+import type { GetStaticPaths, Page } from "astro";
+import Layout from "@/layouts/Layout.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import {
+  PROJECTS,
+  PROJECT_CATEGORIES,
+  PRIVATE_PROJECTS,
+  type Project,
+} from "@/data/projects";
+import { t } from "@/locales";
+
+export const getStaticPaths = (async ({ paginate }) =>
+  paginate(PROJECTS, {
+    pageSize: Math.max(PROJECTS.length, 1),
+  })) satisfies GetStaticPaths;
+
+const { page } = Astro.props as { page: Page<Project> };
+---
+
+<Layout title={t["nav.projects"]} description={t["projects.description"]}>
+  <div class="section-title reveal">
+    <h1 class="ts-header is-big is-heavy">{t["nav.projects"]}</h1>
+  </div>
+  {
+    page.data.length === 0 ? (
+      <p class="ts-text is-secondary">{t["projects.empty"]}</p>
+    ) : (
+      // data-pagefind-body: index project names/descriptions into site
+      // search alongside blog, gallery, and about (each paginated page
+      // indexes its own projects). Without it, Pagefind — which indexes
+      // only [data-pagefind-body] once any page declares it — skipped
+      // projects entirely, so search wasn't whole-site.
+      <div
+        class="project-categories"
+        data-pagefind-body
+        data-pagefind-meta={`title:${t["nav.projects"]}`}
+      >
+        {PROJECT_CATEGORIES.map((category) => {
+          const projects = page.data.filter((project) => project.category === category);
+          return projects.length > 0 && (
+            <section class="project-category" aria-labelledby={`category-${category}`}>
+              <h2 id={`category-${category}`} class="project-category-title ts-header is-heavy reveal">
+                {category}
+              </h2>
+              <div class="projects-grid">
+                {projects.map((project, i) => (
+                  <div class="reveal" style={`--ri: ${i % 3}`}>
+                    <ProjectCard project={project} />
+                  </div>
+                ))}
+              </div>
+            </section>
+          );
+        })}
+      </div>
+    )
+  }
+  {
+    PRIVATE_PROJECTS.length > 0 && (
+      <section class="private-projects" data-pagefind-body>
+        <div class="private-projects-heading reveal">
+          <h2 class="ts-header is-heavy">非公開經歷</h2>
+          <p class="ts-text is-secondary">
+            以下僅說明我參與的工作方向；基於合作與資料保密，不提供程式碼、內部圖片與實作細節。
+          </p>
+        </div>
+        <div class="projects-grid">
+          {PRIVATE_PROJECTS.map((project, i) => (
+            <div class="project-item private-project-item reveal" style={`--ri: ${i % 3}`}>
+              <div class="ts-header is-heavy">{project.name}</div>
+              <p class="ts-text is-secondary">{project.description}</p>
+              <div class="ts-wrap">
+                {project.tech.map((tech) => (
+                  <div class="ts-chip is-circular is-outlined">{tech}</div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )
+  }
+</Layout>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">抽象科技與程式設計視覺</title>
+  <desc id="desc">深色背景上的資料節點、程式碼符號與幾何線條。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="1" stop-color="#263244"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#9bd7ff" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#9bd7ff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#fff" stroke-opacity=".055"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <circle cx="1260" cy="170" r="430" fill="url(#glow)"/>
+  <circle cx="300" cy="780" r="420" fill="url(#glow)"/>
+  <g fill="none" stroke="#b9e2ff" stroke-width="3" stroke-opacity=".55">
+    <path d="M155 620L390 430l210 92 255-256 210 148 315-182"/>
+    <path d="M235 250h245l120 120h245l155 155h355" stroke-opacity=".25"/>
+  </g>
+  <g fill="#e7f5ff">
+    <circle cx="155" cy="620" r="10"/><circle cx="390" cy="430" r="10"/>
+    <circle cx="600" cy="522" r="10"/><circle cx="855" cy="266" r="10"/>
+    <circle cx="1065" cy="414" r="10"/><circle cx="1380" cy="232" r="10"/>
+  </g>
+  <g fill="#fff" font-family="ui-monospace, SFMono-Regular, Consolas, monospace">
+    <text x="150" y="150" font-size="34" opacity=".5">computer_vision.py</text>
+    <text x="150" y="202" font-size="28" opacity=".32">model.fit(data, labels)</text>
+    <text x="1110" y="690" font-size="120" font-weight="700" opacity=".86">WK</text>
+    <text x="1110" y="750" font-size="27" letter-spacing="8" opacity=".48">ENGINEERING</text>
+  </g>
+  <g transform="translate(650 540)" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" opacity=".8">
+    <path d="M-115-72l-88 82 88 82M115-72l88 82-88 82M42-122L-42 132"/>
+  </g>
+</svg>

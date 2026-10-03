@@ -1,0 +1,47 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { ARTICLES } from "@/data/articles";
+import { t } from "@/locales";
+---
+
+<Layout title={t["blog.title"]} description="程式設計教材、技術整理與實習心得">
+  <div class="section-title reveal">
+    <div>
+      <h1 class="ts-header is-big is-heavy">{t["blog.title"]}</h1>
+      <p class="ts-text is-secondary articles-intro">
+        程式設計教材、技術筆記，以及在研究與實習過程中的經驗整理。
+      </p>
+    </div>
+    <span class="ts-text is-description">共 {ARTICLES.length} 篇</span>
+  </div>
+
+  <div
+    class="articles-grid"
+    data-pagefind-body
+    data-pagefind-meta={`title:${t["blog.title"]}`}
+  >
+    {
+      ARTICLES.map((article, i) => (
+        <a
+          class="article-card reveal"
+          style={`--ri: ${i % 3}`}
+          href={article.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="article-card-meta ts-text is-description">
+            <span>{article.source}</span>
+            <span aria-hidden="true">↗</span>
+          </div>
+          <h2 class="ts-header is-heavy u-line">{article.title}</h2>
+          <p class="ts-text is-secondary">{article.description}</p>
+          <div class="ts-wrap">
+            {article.tags.map((tag) => (
+              <span class="ts-chip is-circular is-outlined">{tag}</span>
+            ))}
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</Layout>
